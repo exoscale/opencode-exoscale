@@ -1,0 +1,19 @@
+{
+  "name": "opencode-exoscale",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "OpenCode plugin: Exoscale inference provider. Registers Exoscale in /connect (API key + optional endpoint, or EXOSCALE_API_KEY env) and discovers models live from the endpoint's /v1/models — no provider or model config in opencode.json.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/",
+    "typecheck": "tsc --noEmit --strict --allowImportingTsExtensions --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck --types node index.ts test/index.test.ts"
+  },
+  "dependencies": {
+    "@opencode/plugin": "^2.0.21"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "typescript": "^5.9.3"
+  }
+}

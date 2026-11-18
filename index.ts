@@ -390,12 +390,15 @@ export function connectionFingerprint(connection: ConnectionInfo): string {
 // Discovery planning (pure)
 // ============================================================================
 
-// The subset of a resolved credential that discovery cares about.
-// configuration is the pre-2.1 field; metadata is where 2.1 stores the
-// connect-form answer.
+// The subset of a resolved credential that discovery cares about: the key
+// variants' key plus form answers (configuration is the pre-2.1 field,
+// metadata is where 2.1 stores the answer). Non-key variants are matched by
+// type alone; their library fields stay optional so a library
+// Credential.Value stays assignable here.
 type ResolvedCredential =
   | { type: "key"; key: string; configuration?: Record<string, unknown>; metadata?: Record<string, unknown> }
-  | { type: "oauth" };
+  | { type: "oauth"; methodID?: string; refresh?: string; access?: string; expires?: number; metadata?: Record<string, unknown> }
+  | { type: "external"; methodID?: string; metadata?: Record<string, unknown> };
 
 // What discovery should use:
 // - discover: proceed with this key/endpoint/fingerprint

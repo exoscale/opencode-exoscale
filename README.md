@@ -6,6 +6,16 @@ configuration needed in `opencode.json`.
 
 ## Setup
 
+### From npm
+
+```sh
+opencode plugin add @exoscale/opencode-exoscale
+```
+
+### From git
+
+(for development, or to use an unreleased commit)
+
 1. Clone the repo:
 
    ```sh
@@ -76,6 +86,7 @@ configuration needed in `opencode.json`.
 npm ci          # exact deps from the committed lockfile
 npm test        # node --test
 npm run typecheck
+npm run build   # emit dist/ (what npm publishes)
 ```
 
 Plugin code changes require a full `opencode service restart`;

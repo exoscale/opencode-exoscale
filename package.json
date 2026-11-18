@@ -1,13 +1,31 @@
 {
-  "name": "opencode-exoscale",
+  "name": "@exoscale/opencode-exoscale",
   "version": "0.1.0",
-  "private": true,
   "license": "Apache-2.0",
   "description": "OpenCode plugin: Exoscale inference provider. Registers one /connect row per zone (on-demand API key, or EXOSCALE_AI_API_KEY when EXOSCALE_AI_ENDPOINT names the zone) and one row per Dedicated Inference deployment, and discovers models live from each endpoint's /v1/models — no provider or model config in opencode.json.",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exoscale/opencode-exoscale.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "test": "node --test test/",
-    "typecheck": "tsc --noEmit --strict --allowImportingTsExtensions --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck --types node index.ts test/index.test.ts"
+    "test": "node --test test/index.test.ts",
+    "typecheck": "tsc --noEmit --strict --allowImportingTsExtensions --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck --types node index.ts test/index.test.ts",
+    "build": "tsc index.ts --outDir dist --target es2022 --module nodenext --moduleResolution nodenext --strict --skipLibCheck --types node --declaration"
   },
   "dependencies": {
     "@opencode/plugin": "^2.0.21"

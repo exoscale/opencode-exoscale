@@ -1,6 +1,6 @@
 {
   "name": "@exoscale/opencode-exoscale",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "description": "OpenCode plugin: Exoscale inference provider. Registers one /connect row per zone (on-demand API key, or EXOSCALE_AI_API_KEY when EXOSCALE_AI_ENDPOINT names the zone) and one row per Dedicated Inference deployment, and discovers models live from each endpoint's /v1/models — no provider or model config in opencode.json.",
   "type": "module",
